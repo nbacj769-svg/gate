@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 """
 VPN Gate SSTP 节点检测流水线 (精简版)
@@ -51,8 +52,8 @@ TEMPLATE_HTML = os.path.join(REPO_DIR, "web", "index.html")
 
 DATA_CENTER_ORG_KEYWORDS = [
     "GOOGLE", "AMAZON", "AWS", "MICROSOFT", "OVH", "HETZNER", "DIGITALOCEAN",
-    "AKAMAI", "CLOUDFLARE", "FASTLY", "RACKS
-COUNTRY_ZH = {
+    "AKAMAI", "CLOUDFLARE", "FASTLY", "RACKSPACE", "EQUINIX", "LINODE", "VULTR",
+    "HURRICANE", "TENCENT", "ALIBABA", "ALIYUN", "LEASWEB", ]  RESIDENTIAL_ORG_KEYWORDS = [     "NTT EAST", "NTT WEST", "NTT COMMUNICATIONS", "NTT BROADBAND", "KDDI", "DOCOMO",     "SOFTBANK", "AU COMMUNICATIONS", "J:COM", "JCOM", "OCN", "BIGLOBE",     "IIJ", "SEIKO", "CLEVER-NET", "AT&T", "COMCAST", "XFINITY", "VERIZON",     "TELUS", "ROGERS", "BELL CANADA", "VODAFONE", "ORANGE", "DEUTSCHE TELEKOM",     "BREEZE", "TIM S.P.A", "LIBERO", "FASTWEB", "FREE FRANCE", "BT OPEN", ]  COUNTRY_ZH = {
     "JP": "日本", "KR": "韩国", "US": "美国", "CA": "加拿大", "RU": "俄罗斯",
     "RO": "罗马尼亚", "TH": "泰国", "VN": "越南", "DE": "德国", "FR": "法国",
     "GB": "英国", "UK": "英国", "SG": "新加坡", "TW": "台湾", "HK": "香港",
@@ -200,7 +201,7 @@ def parse_mirror_json(data):
             "config_b64": str(s.get("openvpn_configdata_base64") or s.get("config_b64") or "").strip(),
         })
     return rows
-PACE", "EQUINIX", "LINODE", "VULTR",
+
 # ---------------------------------------------------------------------------
 # 优选 API 获取与解析
 # ---------------------------------------------------------------------------
@@ -515,13 +516,3 @@ if __name__ == "__main__":
         raise
     except Exception as exc:
         die(f"程序异常: {type(exc).__name__}: {exc}")
-
-    "HURRICANE", "TENCENT", "ALIBABA", "ALIYUN", "LEASWEB",
-]
-RESIDENTIAL_ORG_KEYWORDS = [
-    "NTT EAST", "NTT WEST", "NTT COMMUNICATIONS", "NTT BROADBAND", "KDDI", "DOCOMO",
-    "SOFTBANK", "AU COMMUNICATIONS", "J:COM", "JCOM", "OCN", "BIGLOBE",
-    "IIJ", "SEIKO", "CLEVER-NET", "AT&T", "COMCAST", "XFINITY", "VERIZON",
-    "TELUS", "ROGERS", "BELL CANADA", "VODAFONE", "ORANGE", "DEUTSCHE TELEKOM",
-    "BREEZE", "TIM S.P.A", "LIBERO", "FASTWEB", "FREE FRANCE", "BT OPEN",
-]
